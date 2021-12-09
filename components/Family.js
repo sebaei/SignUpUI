@@ -8,13 +8,20 @@ import {
   ScrollView,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+
+//Down and Right arrows icons to be used when toggling additional components on/off
 import Arr from 'react-native-vector-icons/MaterialIcons';
+
+//Eye Icon to be used in Show/Hide Password
+import Eye from 'react-native-vector-icons/FontAwesome';
 const Family = () => {
+  //First CheckBox for save password and other 3 are for an arrow icon in every component to minimize or maximize
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [farr, setFarr] = useState(true);
   const [sarr, setSarr] = useState(false);
   const [tarr, setTarr] = useState(false);
 
+  //Switch state for each toggle of arrows
   const togglefarr = () => {
     setFarr(!farr);
   };
@@ -44,10 +51,7 @@ const Family = () => {
               style={styles.input}></TextInput>
             <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
               <CheckBox
-                checked
-                containerStyle={{backgroundColor: 'pink'}}
                 value={toggleCheckBox}
-                onCheckColor="rgb(255, 196, 0)"
                 onValueChange={newValue => setToggleCheckBox(newValue)}
               />
               <Text style={{marginTop: 5}}>Save Password</Text>

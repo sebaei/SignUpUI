@@ -13,27 +13,37 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+
+//Icons used
 import WhatsIcon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FamIcon from 'react-native-vector-icons/MaterialIcons';
+import {Dropdown} from 'react-native-material-dropdown';
 const App = () => {
-  // State
+  // States that will be changed
   const [toggleCheckBox2, setToggleCheckBox2] = useState(false);
   const [toggleCheckBox3, setToggleCheckBox3] = useState(false);
   const [personalPage, setPersonalPage] = useState(true);
   const [familyPage, setFamilyPage] = useState(false);
 
+  //To enable Family Account component
   const enfamilyPage = () => {
     setPersonalPage(false);
     setFamilyPage(true);
   };
+
+  //To enable Personal Acccount component
   const enpersonalPage = () => {
     setFamilyPage(false);
     setPersonalPage(true);
   };
+
+  //Toggle checkbox beside "Sign up for notifications"
   const togglefcheck = () => {
     setToggleCheckBox2(!toggleCheckBox2);
   };
+
+  //Toggle checkbox beside receive order updates
   const togglescheck = () => {
     setToggleCheckBox3(!toggleCheckBox3);
   };
@@ -41,14 +51,14 @@ const App = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.wpcon}>
-        <WhatsIcon
+        <WhatsIcon //Whatsapp Icon
           style={styles.what}
           name="whatsapp"
           size={45}
           color="green"
           onPress={() => Linking.openURL('http://whatsapp.com')}
         />
-        <WhatsIcon
+        <WhatsIcon //Phone Icon
           style={styles.phone}
           name="phone-square"
           size={45}
@@ -56,10 +66,13 @@ const App = () => {
           onPress={() => Linking.openURL(`tel:${+201114121838}`)}
         />
       </View>
+
+      {/* Rescounts Logo */}
       <Image source={require('./rescounts.png')} style={styles.logo} />
       <Text style={styles.sup}> Sign Up</Text>
       <Text style={styles.det}>Add your details to sign up </Text>
       <View style={styles.btncontainer}>
+        {/* Personal Page Button */}
         <TouchableOpacity
           style={[styles.btn, personalPage ? styles.btnactive : styles.btn]}
           title="Personal Account"
@@ -78,6 +91,8 @@ const App = () => {
             Personal Account
           </Text>
         </TouchableOpacity>
+
+        {/* Family Page Button */}
         <TouchableOpacity
           style={styles.btn}
           title="Family Account"
@@ -98,14 +113,16 @@ const App = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Display Personal or Family component depending on which is pressed at the moment */}
       {personalPage && <Personal />}
       {familyPage && <Family />}
-
       <TouchableOpacity style={styles.create} onPress={() => onSubmit()}>
         <Text style={styles.createtext}>Create Account</Text>
       </TouchableOpacity>
       <View style={{flexDirection: 'row'}}>
         <Text style={{textAlign: 'left'}}>Already have an account ?</Text>
+
+        {/* Making Login button */}
         <TouchableOpacity style={styles.loginbtn}>
           <Text style={{fontWeight: 'bold'}}> Login</Text>
         </TouchableOpacity>
