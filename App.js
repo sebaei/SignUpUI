@@ -61,9 +61,9 @@ const App = () => {
         />
         <WhatsIcon //Phone Icon
           style={styles.phone}
-          name="phone-square"
+          name="phone"
           size={45}
-          color="rgb(255, 196, 0)"
+          color="black"
           onPress={() => Linking.openURL(`tel:${+201114121838}`)}
         />
       </View>
@@ -167,16 +167,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
   },
   what: {
-    backgroundColor: 'green',
+    backgroundColor: '#25D366',
     color: 'white',
-    borderRadius: 4,
+    borderRadius: 12,
     marginRight: 15,
+    padding: 5,
+
+    paddingHorizontal: 8,
   },
   phone: {
-    backgroundColor: 'black',
-    borderRadius: 4,
+    backgroundColor: 'rgb(255, 196, 0)',
+    borderRadius: 12,
     marginRight: 30,
-    color: 'rgb(255, 196, 0)',
+    padding: 5,
+    paddingHorizontal: 8,
   },
   logo: {
     backgroundColor: 'white',
