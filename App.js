@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-
+import {Formik} from 'formik';
+import * as yup from 'yup';
 //Icons used
 import WhatsIcon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -55,19 +56,18 @@ const App = () => {
         <WhatsIcon //Whatsapp Icon
           style={styles.what}
           name="whatsapp"
-          size={45}
+          size={35}
           color="green"
           onPress={() => Linking.openURL('http://whatsapp.com')}
         />
         <WhatsIcon //Phone Icon
           style={styles.phone}
           name="phone"
-          size={45}
+          size={35}
           color="black"
           onPress={() => Linking.openURL(`tel:${+201114121838}`)}
         />
       </View>
-
       {/* Rescounts Logo */}
       <Image source={require('./assets/rescounts.png')} style={styles.logo} />
       <Text style={styles.sup}> Sign Up</Text>
@@ -113,14 +113,20 @@ const App = () => {
           </Text>
         </TouchableOpacity>
       </View>
-
       {/* Display Personal or Family component depending on which is pressed at the moment */}
       {personalPage && <Personal shebop={toggleCheckBox2} />}
       {familyPage && <Family />}
-
-      <TouchableOpacity style={styles.create} onPress={() => onSubmit()}>
-        <Text style={styles.createtext}>Create Account</Text>
-      </TouchableOpacity>
+      <Formik onSubmit={values => console.log(values)}>
+        {({handleSubmit}) => (
+          <>
+            <TouchableOpacity
+              style={styles.create}
+              onPress={() => handleSubmit()}>
+              <Text style={styles.createtext}>Create Account</Text>
+            </TouchableOpacity>
+          </>
+        )}
+      </Formik>
       <View style={{flexDirection: 'row'}}>
         <Text style={{textAlign: 'left'}}>Already have an account ?</Text>
 

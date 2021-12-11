@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Personal from './Personal';
 import {
   View,
   Text,
@@ -36,37 +37,7 @@ const Family = () => {
       <View style={[styles.card, styles.elevation]}>
         <Text style={styles.header}>Your info</Text>
         {farr ? (
-          <View>
-            <TextInput
-              placeholder="First Name"
-              style={styles.input}></TextInput>
-            <TextInput placeholder="Last Name" style={styles.input}></TextInput>
-            <TextInput placeholder="E-mail" style={styles.input}></TextInput>
-            <TextInput
-              placeholder="Phone Number"
-              style={styles.input}></TextInput>
-            <TextInput placeholder="Password" style={styles.input}></TextInput>
-            <TextInput
-              placeholder="Re-enter Password"
-              style={styles.input}></TextInput>
-            <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
-              <CheckBox
-                tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
-                value={toggleCheckBox}
-                onValueChange={newValue => setToggleCheckBox(newValue)}
-              />
-              <Text style={{marginTop: 5}}>Save Password</Text>
-            </View>
-            <View>
-              <Arr
-                style={styles.arr}
-                name="keyboard-arrow-down"
-                size={50}
-                color="black"
-                onPress={() => togglefarr()}
-              />
-            </View>
-          </View>
+          <Personal />
         ) : (
           <View>
             <Arr
@@ -203,3 +174,31 @@ const styles = StyleSheet.create({
 });
 
 export default Family;
+
+{
+  /* <View>
+  <TextInput placeholder="First Name" style={styles.input}></TextInput>
+  <TextInput placeholder="Last Name" style={styles.input}></TextInput>
+  <TextInput placeholder="E-mail" style={styles.input}></TextInput>
+  <TextInput placeholder="Phone Number" style={styles.input}></TextInput>
+  <TextInput placeholder="Password" style={styles.input}></TextInput>
+  <TextInput placeholder="Re-enter Password" style={styles.input}></TextInput>
+  <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
+    <CheckBox
+      tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
+      value={toggleCheckBox}
+      onValueChange={newValue => setToggleCheckBox(newValue)}
+    />
+    <Text style={{marginTop: 5}}>Save Password</Text>
+  </View>
+  <View>
+    <Arr
+      style={styles.arr}
+      name="keyboard-arrow-down"
+      size={50}
+      color="black"
+      onPress={() => togglefarr()}
+    />
+  </View>
+</View>; */
+}
