@@ -5,10 +5,8 @@ import {Linking} from 'react-native';
 import {
   View,
   Text,
-  TextInput,
   Image,
   StyleSheet,
-  Button,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';

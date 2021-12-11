@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, TextInput, StyleSheet} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import Eye from 'react-native-vector-icons/FontAwesome';
