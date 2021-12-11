@@ -16,12 +16,6 @@ export default Personal = () => {
   };
   const [error, setError] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  // const [textinput1, setTextinput1] = useState('');
-  // const [textinput2, setTextinput2] = useState('');
-  // const [textinput3, setTextinput3] = useState('');
-  // const [textinput4, setTextinput4] = useState('');
-  // const [textinput5, setTextinput5] = useState('');
-  // const [textinput6, setTextinput6] = useState('');
 
   const [secure, setSecure] = useState(false);
 
