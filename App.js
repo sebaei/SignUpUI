@@ -130,6 +130,7 @@ const App = () => {
       </View>
       <View style={styles.signreceive}>
         <CheckBox
+          tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
           value={toggleCheckBox2}
           onValueChange={() => togglefcheck()}
         />
@@ -140,6 +141,7 @@ const App = () => {
       </View>
       <View style={styles.signreceive}>
         <CheckBox
+          tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
           value={toggleCheckBox3}
           onValueChange={() => togglescheck()}
         />

@@ -55,6 +55,7 @@ const Personal = () => {
       </TextInput>
       <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
         <CheckBox
+          tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
           value={toggleCheckBox}
           onValueChange={newValue => setToggleCheckBox(newValue)}
         />
