@@ -45,6 +45,9 @@ const App = () => {
   const togglescheck = () => {
     setToggleCheckBox3(!toggleCheckBox3);
   };
+  const onSubmit = () => {
+    console.log('Account Created');
+  };
 
   return (
     <ScrollView style={styles.container}>
