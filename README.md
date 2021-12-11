@@ -7,4 +7,4 @@
     ├── package.json              # List of Packages used in the project
     ├── app.json                  # Configuring parts of your app
     ├── App.js                    # Starting point of the app
-    └── README.md                 # Comprehensi
+    └── README.md                 # Comprehensive description
