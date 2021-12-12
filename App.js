@@ -116,17 +116,11 @@ const App = () => {
       {/* Display Personal or Family component depending on which is pressed at the moment */}
       {personalPage && <Personal shebop={toggleCheckBox2} />}
       {familyPage && <Family />}
-      <Formik onSubmit={values => console.log(values)}>
-        {({handleSubmit}) => (
-          <>
-            <TouchableOpacity
-              style={styles.create}
-              onPress={() => handleSubmit()}>
-              <Text style={styles.createtext}>Create Account</Text>
-            </TouchableOpacity>
-          </>
-        )}
-      </Formik>
+
+      <TouchableOpacity style={styles.create} onPress={() => onSubmit()}>
+        <Text style={styles.createtext}>Create Account</Text>
+      </TouchableOpacity>
+
       <View style={{flexDirection: 'row'}}>
         <Text style={{textAlign: 'left'}}>Already have an account ?</Text>
 

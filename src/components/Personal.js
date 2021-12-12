@@ -17,7 +17,7 @@ export default Personal = () => {
   const [error, setError] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
-  const [secure, setSecure] = useState(false);
+  const [secure, setSecure] = useState(true);
 
   const signupValidationSchema = yup.object().shape({
     fname: yup.string().required('First name is required'),
@@ -64,46 +64,56 @@ export default Personal = () => {
           return (
             <>
               <View>
+                {errors.fname && touched.fname && (
+                  <Text style={styles.errorText}>{errors.fname}</Text>
+                )}
                 <TextInput
                   value={fname}
-                  error={touched.fname && errors.fname}
                   placeholder="First Name"
                   onChangeText={handleChange('fname')}
                   onBlur={handleBlur('fname')}
                   style={styles.input}
                 />
+                {errors.lname && touched.lname && (
+                  <Text style={styles.errorText}>{errors.lname}</Text>
+                )}
                 <TextInput
                   value={lname}
-                  error={touched.lname && errors.lname}
                   placeholder="Last Name"
                   onChangeText={handleChange('lname')}
                   onBlur={handleBlur('lname')}
                   style={styles.input}
                 />
+                {errors.email && touched.email && (
+                  <Text style={styles.errorText}>{errors.email}</Text>
+                )}
                 <TextInput
                   value={email}
-                  error={touched.email && errors.email}
                   placeholder="Email Address"
-                  style={styles.textInput}
                   onChangeText={handleChange('email')}
                   onBlur={handleBlur('email')}
                   keyboardType="email-address"
                   style={styles.input}
                 />
+                {errors.phone && touched.phone && (
+                  <Text style={styles.errorText}>{errors.phone}</Text>
+                )}
                 <TextInput
                   value={phone}
-                  error={touched.phone && errors.phone}
                   placeholder="Phone Number"
                   onChangeText={handleChange('phone')}
+                  onBlur={handleBlur('phone')}
                   keyboardType="numeric"
                   style={styles.input}
                 />
-
+                {errors.password && touched.password && (
+                  <Text style={styles.errorText}>{errors.password}</Text>
+                )}
                 <TextInput
                   value={password}
-                  error={touched.password && errors.password}
                   placeholder="Password"
                   onChangeText={handleChange('password')}
+                  onBlur={handleBlur('password')}
                   secureTextEntry
                   style={styles.input}>
                   {/* <Eye
@@ -114,22 +124,23 @@ export default Personal = () => {
                   /> */}
                 </TextInput>
 
-                <View>
-                  <TextInput
-                    value={repassword}
-                    error={touched.repassword && errors.repassword}
-                    placeholder="Confirm Password"
-                    onChangeText={handleChange('password')}
-                    secureTextEntry
-                    style={styles.input}>
-                    {/* <Eye
+                {errors.repassword && touched.repassword && (
+                  <Text style={styles.errorText}>{errors.repassword}</Text>
+                )}
+                <TextInput
+                  value={repassword}
+                  placeholder="Confirm Password"
+                  onChangeText={handleChange('repassword')}
+                  onBlur={handleBlur('repassword')}
+                  secureTextEntry
+                  style={styles.input}>
+                  {/* <Eye
                       name={secure ? 'eye' : 'eye-slash'}
                       size={20}
                       color="gray"
                       onPress={() => setSecure(!secure)}
                     /> */}
-                  </TextInput>
-                </View>
+                </TextInput>
               </View>
             </>
           );
@@ -153,5 +164,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 12,
     margin: 10,
+  },
+  errorText: {
+    marginLeft: 10,
+    fontSize: 13,
+    color: 'red',
   },
 });

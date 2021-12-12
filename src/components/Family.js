@@ -37,7 +37,16 @@ const Family = () => {
       <View style={[styles.card, styles.elevation]}>
         <Text style={styles.header}>Your info</Text>
         {farr ? (
-          <Personal />
+          <View>
+            <Personal />
+            <Arr
+              style={styles.arr}
+              name="keyboard-arrow-down"
+              size={50}
+              color="black"
+              onPress={() => togglefarr()}
+            />
+          </View>
         ) : (
           <View>
             <Arr
