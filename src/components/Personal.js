@@ -16,9 +16,11 @@ export default Personal = () => {
   };
   const [error, setError] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-
+  const [showCheckBox, setShowCheckBox] = useState(false);
   const [secure, setSecure] = useState(true);
-
+  const showHide = () => {
+    setShowCheckBox(!showCheckBox);
+  };
   const signupValidationSchema = yup.object().shape({
     fname: yup.string().required('First name is required'),
     lname: yup.string().required('Last name is required'),
@@ -114,7 +116,7 @@ export default Personal = () => {
                   placeholder="Password"
                   onChangeText={handleChange('password')}
                   onBlur={handleBlur('password')}
-                  secureTextEntry
+                  secureTextEntry={!showCheckBox}
                   style={styles.input}>
                   {/* <Eye
                     name={secure ? 'eye' : 'eye-slash'}
@@ -132,7 +134,7 @@ export default Personal = () => {
                   placeholder="Confirm Password"
                   onChangeText={handleChange('repassword')}
                   onBlur={handleBlur('repassword')}
-                  secureTextEntry
+                  secureTextEntry={!showCheckBox}
                   style={styles.input}>
                   {/* <Eye
                       name={secure ? 'eye' : 'eye-slash'}
@@ -146,6 +148,14 @@ export default Personal = () => {
           );
         }}
       </Formik>
+      <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
+        <CheckBox
+          tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}
+          value={showCheckBox}
+          onValueChange={newValue2 => showHide(newValue2)}
+        />
+        <Text style={{marginTop: 5}}>Show Password</Text>
+      </View>
       <View style={{flexDirection: 'row', padding: 4, marginBottom: 5}}>
         <CheckBox
           tintColors={{true: 'rgb(255, 196, 0)', false: 'grey'}}

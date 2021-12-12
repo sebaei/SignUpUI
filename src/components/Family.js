@@ -19,7 +19,6 @@ import Eye from 'react-native-vector-icons/FontAwesome';
 const Family = () => {
   const [selectedValue, setSelectedValue] = useState('School Name');
   //First CheckBox for save password and other 3 are for an arrow icon in every component to minimize or maximize
-  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [farr, setFarr] = useState(true);
   const [sarr, setSarr] = useState(false);
   const [tarr, setTarr] = useState(false);
