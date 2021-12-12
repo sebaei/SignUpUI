@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import CheckBox from '@react-native-community/checkbox';
 
 //Down and Right arrows icons to be used when toggling additional components on/off
@@ -16,6 +17,7 @@ import Arr from 'react-native-vector-icons/MaterialIcons';
 //Eye Icon to be used in Show/Hide Password
 import Eye from 'react-native-vector-icons/FontAwesome';
 const Family = () => {
+  const [selectedValue, setSelectedValue] = useState('School Name');
   //First CheckBox for save password and other 3 are for an arrow icon in every component to minimize or maximize
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [farr, setFarr] = useState(true);
@@ -108,9 +110,19 @@ const Family = () => {
               placeholder="First Name"
               style={styles.input}></TextInput>
             <TextInput placeholder="Last Name" style={styles.input}></TextInput>
-            <TextInput
-              placeholder="School Name"
-              style={styles.input}></TextInput>
+            <View style={styles.pick}>
+              <Picker
+                prompt="School Name"
+                selectedValue={selectedValue}
+                onValueChange={(itemValue, itemIndex) =>
+                  setSelectedValue(itemValue)
+                }>
+                <Picker.Item label="GUC" value="GUC" />
+                <Picker.Item label="AUC" value="AUC" />
+                <Picker.Item label="BUE" value="BUE" />
+                <Picker.Item label="Other" value="Other" />
+              </Picker>
+            </View>
             <TextInput
               placeholder="Class Name"
               style={styles.input}></TextInput>
@@ -146,6 +158,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     padding: 12,
+    margin: 10,
+  },
+  pick: {
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 0,
     margin: 10,
   },
   card: {
