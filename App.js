@@ -58,7 +58,7 @@ const App = () => {
           name="whatsapp"
           size={35}
           color="green"
-          onPress={() => Linking.openURL('http://whatsapp.com')}
+          onPress={() => Linking.openURL('http://wa.me/201114121838')}
         />
         <WhatsIcon //Phone Icon
           style={styles.phone}
